@@ -40,27 +40,6 @@ This project is designed with a focus on **performance, scalability, and clean a
 ### Database
 - MongoDB  
 
----
-
-## 📂 Project Structure
-
-BlogEngine/
-│
-├── client/ # Frontend (React)
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── assets/
-│ │ └── App.jsx
-│
-├── server/ # Backend (Node + Express)
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ └── server.js
-│
-└── README.md
-
 
 ---
 
