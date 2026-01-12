@@ -1,23 +1,13 @@
-import fetch from "node-fetch";
+import { GoogleGenAI } from "@google/genai";
 
-const main = async (prompt) => {
-  try {
-    const response = await fetch("http://localhost:11434/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "llama3",
-        prompt: prompt,
-        stream: false
-      })
-    });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-    const data = await response.json();
-    return data.response;
-  } catch (error) {
-    console.error("Ollama Error:", error.message);
-    return "AI service is currently unavailable.";
-  }
-};
+async function main(prompt) {
+  const response = await ai.models.generateContent({
+    model: "gemini-2.0-flash",
+    contents: prompt,
+  });
+  return response.text
+}
 
 export default main;
